@@ -1,0 +1,9 @@
+c:\users\darren\documents\visual studio 2013\Projects\PizzaProject\bin\Debug\PizzaProject.exe.config
+C:\Users\Darren\documents\visual studio 2013\Projects\PizzaProject\bin\Debug\PizzaProject.exe
+C:\Users\Darren\documents\visual studio 2013\Projects\PizzaProject\bin\Debug\PizzaProject.pdb
+C:\Users\Darren\documents\visual studio 2013\Projects\PizzaProject\obj\Debug\PizzaProject.frmMiPi.resources
+C:\Users\Darren\documents\visual studio 2013\Projects\PizzaProject\obj\Debug\PizzaProject.Properties.Resources.resources
+C:\Users\Darren\documents\visual studio 2013\Projects\PizzaProject\obj\Debug\PizzaProject.csproj.GenerateResource.Cache
+C:\Users\Darren\documents\visual studio 2013\Projects\PizzaProject\obj\Debug\PizzaProject.exe
+C:\Users\Darren\documents\visual studio 2013\Projects\PizzaProject\obj\Debug\PizzaProject.pdb
+C:\Users\Darren\Documents\Visual Studio 2013\Projects\PizzaProject\obj\Debug\PizzaProject.csprojResolveAssemblyReference.cache

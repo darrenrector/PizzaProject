@@ -29,27 +29,27 @@ namespace PizzaProject
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
-            CalculatePrice();
+
         }
 
         private void checkBox9_CheckedChanged(object sender, EventArgs e)
         {
-            CalculatePrice();
+
         }
 
         private void checkBox7_CheckedChanged(object sender, EventArgs e)
         {
-            CalculatePrice();
+
         }
 
         private void checkBox4_CheckedChanged(object sender, EventArgs e)
         {
-            CalculatePrice();
+
         }
 
         private void checkBox3_CheckedChanged(object sender, EventArgs e)
         {
-            CalculatePrice();
+
         }
 
         private void frmMiPi_Load(object sender, EventArgs e)
@@ -82,12 +82,12 @@ namespace PizzaProject
                     "Exit Form", MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question,
                     MessageBoxDefaultButton.Button2);
-            
+
             if (button == DialogResult.Yes)
             {
                 this.Close();
             }
-            
+
         }
 
         private void btnPrice_Click(object sender, EventArgs e)
@@ -150,7 +150,7 @@ namespace PizzaProject
 
         private void tmrDT_Tick(object sender, EventArgs e)
         {
-            lblDateTime.Text = DateTime.Now.ToLongDateString()   +  "  "  + DateTime.Now.ToLongTimeString();
+            lblDateTime.Text = DateTime.Now.ToLongDateString() + "  " + DateTime.Now.ToLongTimeString();
         }
 
         private void mtbPhone_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
@@ -314,10 +314,10 @@ namespace PizzaProject
                 }
             }
 
-                mtbPhone.Focus();
+            mtbPhone.Focus();
 
 
-            
+
 
 
 
@@ -326,113 +326,8 @@ namespace PizzaProject
 
         private void lblCompanyName_Click(object sender, EventArgs e)
         {
-
         }
 
-        public void CalculatePrice()
-        {
-            throw new System.NotImplementedException();
-            double PriceSize = 0.00;
-            double PriceEachTopping, PriceToppings, TotalOrder;
-            int Pepperoni, Sausage, Cheese, Ham, Hamburger, Mushrooms, BlackOlives, GreenOlives, Pineapple, Onions;
-
-            if (radSmall.Checked == true)
-                PriceSize = double.Parse(radSmall.Text);
-            if (radMedium.Checked == true)
-                PriceSize = double.Parse(radMedium.Text);
-            if (radLarge.Checked == true)
-                PriceSize = double.Parse(radLarge.Text);
-            if (chkPepperoni.Checked == true)
-                Pepperoni = 1;
-            else 
-                Pepperoni = 0;
-            if (chkSausage.Checked == true)
-                Sausage = 1;
-            else 
-                Sausage = 0;
-
-            if (chkCheese.Checked == true)
-                Cheese = 1;
-            else 
-                Cheese = 0;
-
-            if (chkHam.Checked == true)
-                Ham = 1;
-            else 
-                Ham = 0;
-
-            if (chkHamburger.Checked == true)
-                Hamburger = 1;
-            else 
-                Hamburger = 0;
-
-            if (chkMushrooms.Checked == true)
-                Mushrooms = 1;
-            else 
-                Mushrooms = 0;
-
-            if (chkBlackOlives.Checked == true)
-                BlackOlives = 1;
-            else 
-                BlackOlives = 0;
-
-            if (chkGreenOlives.Checked == true)
-                GreenOlives = 1;
-            else 
-                GreenOlives = 0;
-
-            if (chkPineapple.Checked == true)
-                Pineapple = 1;
-            else 
-                Pineapple = 0;
-
-            if (chkOnions.Checked == true)
-                Onions = 1;
-            else 
-                Onions = 0;
-
-            
-
-        }
-
-        private void radSmall_CheckedChanged(object sender, EventArgs e)
-        {
-            CalculatePrice();
-        }
-
-        private void radLarge_CheckedChanged(object sender, EventArgs e)
-        {
-            CalculatePrice();
-        }
-
-        private void chkCheese_CheckedChanged(object sender, EventArgs e)
-        {
-            CalculatePrice();
-        }
-
-        private void chkSausage_CheckedChanged(object sender, EventArgs e)
-        {
-            CalculatePrice();
-        }
-
-        private void chkBlackOlives_CheckedChanged(object sender, EventArgs e)
-        {
-            CalculatePrice();
-        }
-
-        private void chkHam_CheckedChanged(object sender, EventArgs e)
-        {
-            CalculatePrice();
-        }
-
-        private void chkOnions_CheckedChanged(object sender, EventArgs e)
-        {
-            CalculatePrice();
-        }
-
-        private void chkMushrooms_CheckedChanged(object sender, EventArgs e)
-        {
-            CalculatePrice
-        }
     }
 }
+     

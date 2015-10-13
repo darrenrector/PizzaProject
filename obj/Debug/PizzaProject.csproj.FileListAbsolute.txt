@@ -7,3 +7,12 @@ C:\Users\Darren\documents\visual studio 2013\Projects\PizzaProject\obj\Debug\Piz
 C:\Users\Darren\documents\visual studio 2013\Projects\PizzaProject\obj\Debug\PizzaProject.exe
 C:\Users\Darren\documents\visual studio 2013\Projects\PizzaProject\obj\Debug\PizzaProject.pdb
 C:\Users\Darren\Documents\Visual Studio 2013\Projects\PizzaProject\obj\Debug\PizzaProject.csprojResolveAssemblyReference.cache
+C:\Users\Darren\Documents\GitHub\PizzaProject2\bin\Debug\PizzaProject.exe.config
+C:\Users\Darren\Documents\GitHub\PizzaProject2\obj\Debug\PizzaProject.exe
+C:\Users\Darren\Documents\GitHub\PizzaProject2\obj\Debug\PizzaProject.csprojResolveAssemblyReference.cache
+C:\Users\Darren\Documents\GitHub\PizzaProject2\obj\Debug\PizzaProject.frmMiPi.resources
+C:\Users\Darren\Documents\GitHub\PizzaProject2\obj\Debug\PizzaProject.Properties.Resources.resources
+C:\Users\Darren\Documents\GitHub\PizzaProject2\obj\Debug\PizzaProject.csproj.GenerateResource.Cache
+C:\Users\Darren\Documents\GitHub\PizzaProject2\bin\Debug\PizzaProject.exe
+C:\Users\Darren\Documents\GitHub\PizzaProject2\bin\Debug\PizzaProject.pdb
+C:\Users\Darren\Documents\GitHub\PizzaProject2\obj\Debug\PizzaProject.pdb

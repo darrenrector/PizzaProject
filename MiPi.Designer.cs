@@ -432,7 +432,7 @@
             this.chkMushrooms.TabIndex = 9;
             this.chkMushrooms.Text = "Mushrooms";
             this.chkMushrooms.UseVisualStyleBackColor = true;
-            this.chkMushrooms.CheckedChanged += new System.EventHandler(this.chkMushrooms_CheckedChanged);
+            //this.chkMushrooms.CheckedChanged += new System.EventHandler(this.chkMushrooms_CheckedChanged);
             // 
             // chkHamburger
             // 
@@ -444,7 +444,7 @@
             this.chkHamburger.TabIndex = 8;
             this.chkHamburger.Text = "Hamburger";
             this.chkHamburger.UseVisualStyleBackColor = true;
-            this.chkHamburger.CheckedChanged += new System.EventHandler(this.checkBox9_CheckedChanged);
+            //this.chkHamburger.CheckedChanged += new System.EventHandler(this.checkBox9_CheckedChanged);
             // 
             // chkOnions
             // 
@@ -456,7 +456,7 @@
             this.chkOnions.TabIndex = 7;
             this.chkOnions.Text = "Onions";
             this.chkOnions.UseVisualStyleBackColor = true;
-            this.chkOnions.CheckedChanged += new System.EventHandler(this.chkOnions_CheckedChanged);
+            //this.chkOnions.CheckedChanged += new System.EventHandler(this.chkOnions_CheckedChanged);
             // 
             // chkPineapple
             // 
@@ -480,7 +480,7 @@
             this.chkHam.TabIndex = 5;
             this.chkHam.Text = "Ham";
             this.chkHam.UseVisualStyleBackColor = true;
-            this.chkHam.CheckedChanged += new System.EventHandler(this.chkHam_CheckedChanged);
+            //this.chkHam.CheckedChanged += new System.EventHandler(this.chkHam_CheckedChanged);
             // 
             // chkBlackOlives
             // 
@@ -492,7 +492,7 @@
             this.chkBlackOlives.TabIndex = 4;
             this.chkBlackOlives.Text = "Black Olives";
             this.chkBlackOlives.UseVisualStyleBackColor = true;
-            this.chkBlackOlives.CheckedChanged += new System.EventHandler(this.chkBlackOlives_CheckedChanged);
+            //this.chkBlackOlives.CheckedChanged += new System.EventHandler(this.chkBlackOlives_CheckedChanged);
             // 
             // chkGreenOlives
             // 
@@ -528,7 +528,7 @@
             this.chkSausage.TabIndex = 1;
             this.chkSausage.Text = "Sausage";
             this.chkSausage.UseVisualStyleBackColor = true;
-            this.chkSausage.CheckedChanged += new System.EventHandler(this.chkSausage_CheckedChanged);
+            //this.chkSausage.CheckedChanged += new System.EventHandler(this.chkSausage_CheckedChanged);
             // 
             // chkCheese
             // 
@@ -540,7 +540,7 @@
             this.chkCheese.TabIndex = 0;
             this.chkCheese.Text = "C&heese";
             this.chkCheese.UseVisualStyleBackColor = true;
-            this.chkCheese.CheckedChanged += new System.EventHandler(this.chkCheese_CheckedChanged);
+            //this.chkCheese.CheckedChanged += new System.EventHandler(this.chkCheese_CheckedChanged);
             // 
             // grpSize
             // 
@@ -566,7 +566,7 @@
             this.radLarge.TabStop = true;
             this.radLarge.Text = "Large ($12.00) ";
             this.radLarge.UseVisualStyleBackColor = true;
-            this.radLarge.CheckedChanged += new System.EventHandler(this.radLarge_CheckedChanged);
+            //this.radLarge.CheckedChanged += new System.EventHandler(this.radLarge_CheckedChanged);
             // 
             // radMedium
             // 
@@ -596,7 +596,7 @@
             this.radSmall.TabStop = true;
             this.radSmall.Text = "Small ($8.00)";
             this.radSmall.UseVisualStyleBackColor = true;
-            this.radSmall.CheckedChanged += new System.EventHandler(this.radSmall_CheckedChanged);
+            //this.radSmall.CheckedChanged += new System.EventHandler(this.radSmall_CheckedChanged);
             // 
             // lblOrderNumber
             // 

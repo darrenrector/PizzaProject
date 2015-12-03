@@ -1,117 +1,244 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
+using System.IO;
+using System.Text;
+using System.Threading.Tasks;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace PizzaProject
 {
     public partial class frmMiPi : Form
     {
+        //Class Variables
+        //---------------------------
+        SqlConnection connSQL;
+        SqlDataAdapter adaptSQL;
+        DataTable dtCust;
+        DataTable dtOrder;
+        Boolean blnOK = true;
+        string strSQL;
+        string strDataSrc = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|Pizza.mdf;";
+        string strSQLparms = "Integrated Security=True;Connect Timeout=30";
+        //----------------------------
+
+        float sglPrice = 0.0f;
+        const Single sgltaxRate = 0.07f;
+        bool blnPhone;
+        bool blnName;
+        bool blnAddress1;
+        bool blnCity;
+        bool blnZipCode;
+
         public frmMiPi()
         {
             InitializeComponent();
+            
         }
 
-        private void lblPhone_Click(object sender, EventArgs e)
+        private void CustSearch()
         {
+            // Get a connection to the database
+            string strConn = strDataSrc + strSQLparms;
+            connSQL = new SqlConnection(strConn);
+            try
+            {
+                connSQL.Open();
+            }
+            catch
+            {
+                blnOK = false;
+                MessageBox.Show("Unable to open PIZZA database connection");
+            }
 
+            if (blnOK)
+            {
+                string strPhone = mtbPhone.Text;
+                dtCust = new DataTable();
+                strSQL = "SELECT * FROM Customers WHERE CustPhone = '" + strPhone + "';";
+                try
+                {
+                    adaptSQL = new SqlDataAdapter(strSQL, connSQL);
+                    adaptSQL.Fill(dtCust);
+                    adaptSQL.Dispose();
+                    dataGridView1.DataSource = dtCust;
+                }
+                catch
+                {
+                    blnOK = false;
+                    dtCust.Dispose();
+                }
+                finally
+                {
+                    connSQL.Close();
+                    connSQL.Dispose();
+                    nudQuanity.Focus();
+                    btnAccept.Enabled = true;
+
+                }
+                if (dtCust.Rows.Count > 0)  
+                {
+                    txtName.Text = dtCust.Rows[0]["CustName"].ToString();
+                    txtAddress1.Text = dtCust.Rows[0]["CustAddress1"].ToString();
+                    txtAddress2.Text = dtCust.Rows[0]["CustAddress2"].ToString();
+                    txtCity.Text = dtCust.Rows[0]["CustCity"].ToString();
+                    cboState.Text = dtCust.Rows[0]["CustState"].ToString();
+                    mtbZipCode.Text = dtCust.Rows[0]["CustZip"].ToString();
+                }
+                else
+                {
+                    txtName.Focus();
+                }
+            }
+        }
+        
+        private void frmMiPi_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult dlgRes;
+            dlgRes = MessageBox.Show("Do you want to close?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dlgRes == System.Windows.Forms.DialogResult.No)
+                e.Cancel = true;
         }
 
-        private void lblAddress1_Click(object sender, EventArgs e)
+        private void frmMiPi_FormClosed(object sender, FormClosedEventArgs e)
         {
+            MessageBox.Show("Order form close completed!");
 
+            ResetForm();
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
 
+
+        private void Pricing()
+        {
+            if (radSmall.Checked)
+            { sglPrice = 8.0f; }
+            else if (radMedium.Checked)
+            { sglPrice = 10.0f; }
+            else
+            { sglPrice = 12.0f; }
+
+            if (chkCheese.Checked)
+                sglPrice += 1.0f;
+            if (chkBlackOlives.Checked)
+                sglPrice += 1.0f;
+            if (chkGreenOlives.Checked)
+                sglPrice += 1.0f;
+            if (chkHam.Checked)
+                sglPrice += 1.0f;
+            if (chkHamburger.Checked)
+                sglPrice += 1.0f;
+            if (chkMushrooms.Checked)
+                sglPrice += 1.0f;
+            if (chkOnions.Checked)
+                sglPrice += 1.0f;
+            if (chkPepperoni.Checked)
+                sglPrice += 1.0f;
+            if (chkPineapple.Checked)
+                sglPrice += 1.0f;
+            if (chkSausage.Checked)
+                sglPrice += 1.0f;
+
+            sglPrice *= Convert.ToSingle(nudQuanity.Value);
+
+            lblSub.Text = sglPrice.ToString("c");
+
+            Single sglTax;
+
+            sglTax = sglPrice * sgltaxRate;
+
+            lblTx.Text = sglTax.ToString("c");
+
+            Single sglTotal;
+
+            sglTotal = sglPrice + sglTax;
+
+            label1.Text = sglTotal.ToString("c");
+        }
+        
+        private void radMedium_CheckedChanged(object sender, EventArgs e)
+        {
+            Pricing();
         }
 
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        private void chkPineapple_CheckedChanged(object sender, EventArgs e)
         {
-
+            Pricing();
         }
 
-        private void checkBox9_CheckedChanged(object sender, EventArgs e)
+        private void chkGreenOlives_CheckedChanged(object sender, EventArgs e)
         {
-
+            Pricing();
         }
 
-        private void checkBox7_CheckedChanged(object sender, EventArgs e)
+        private void chkPepperoni_CheckedChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void checkBox4_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox3_CheckedChanged(object sender, EventArgs e)
-        {
-
+            Pricing();
         }
 
         private void frmMiPi_Load(object sender, EventArgs e)
         {
-            lblDateTime.Text = DateTime.Now.ToLongDateString() + "   " + DateTime.Now.ToLongTimeString();
+            // TODO: This line of code loads data into the 'pizzaDataSet.Customers' table. You can move, or remove it, as needed.
+            //this.customersTableAdapter.Fill(this.pizzaDataSet.Customers);
+            radLarge.Checked = true; //default radio button checked
+            cboPayment.SelectedItem = "CASH";
 
-
-        }
-
-        private void label3_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblName_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            DialogResult button =
-                MessageBox.Show(
-                    "Do you want to Exit?",
-                    "Exit Form", MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question,
-                    MessageBoxDefaultButton.Button2);
-
-            if (button == DialogResult.Yes)
+            string strFilePath = Application.StartupPath + "/../../StateAbbrev.txt";
+            string strState;
+            try
             {
-                this.Close();
+                FileStream fsState = new FileStream(strFilePath, FileMode.Open, FileAccess.Read);
+                StreamReader srStates = new StreamReader(fsState);
+
+                while (!srStates.EndOfStream)
+                {
+                    strState = srStates.ReadLine();
+                    cboState.Items.Add(strState);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Error Reading States File!");
             }
 
+            ResetForm();
+                                                
+        }
+
+        private void btnAccept_Click(object sender, EventArgs e)
+        {
+
+            int counter = int.Parse(lblNumber.Text);
+            counter++;
+            lblNumber.Text = counter.ToString("d4");
+
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "Text Files (*.txt) | *.txt";
+            sfd.ShowDialog();
+            try
+            {
+                FileStream fs = new FileStream(sfd.FileName, FileMode.Append);
+                StreamWriter sw = new StreamWriter(fs);
+                sw.WriteLine(txtName.Text);
+                sw.WriteLine(lblNumber.Text);
+                sw.WriteLine(label1.Text);
+                sw.Close();
+            }
+            catch
+            {
+                txtName.Clear();
+                MessageBox.Show("Data Successfully Written", "File IO");
+            }
+            ResetForm();
         }
 
         private void btnPrice_Click(object sender, EventArgs e)
         {
-            const double TAXRATE = 0.07;                                        //Calculate Price
-            double subtotal = Double.Parse(txtSubtotal.Text);
-            double tax = subtotal * TAXRATE;
-            double grandtotal = subtotal + tax;
-            txtTax.Text = tax.ToString();
-            txtTotal.Text = grandtotal.ToString();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblPayment_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
+            Pricing();
 
         }
 
@@ -123,50 +250,9 @@ namespace PizzaProject
             lblCityError.Visible = false;
         }
 
-        private void txtName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtAddress1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtAddress2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtCity_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblDateTime_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void tmrDT_Tick(object sender, EventArgs e)
         {
             lblDateTime.Text = DateTime.Now.ToLongDateString() + "  " + DateTime.Now.ToLongTimeString();
-        }
-
-        private void mtbPhone_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-
-        }
-
-        private void mtbZipCode_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
-
-        private void lblPhoneNbrError_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void mtbPhone_Leave(object sender, EventArgs e)
@@ -177,13 +263,18 @@ namespace PizzaProject
                 mtbPhone.SelectAll();             //highlight text
                 mtbPhone.Focus();                 //place focus back in box
             }
-
             else
             {
                 lblPhoneNbrError.Visible = false;
-
-
+                blnPhone = true;
+                acceptCheck();
             }
+        }
+
+        private void acceptCheck()
+       {
+            if (blnPhone && blnName && blnZipCode && blnCity && blnAddress1)
+                btnAccept.Enabled = true;
         }
 
         private void txtName_Leave(object sender, EventArgs e)
@@ -194,17 +285,12 @@ namespace PizzaProject
                 txtName.SelectAll();             //highlight text
                 txtName.Focus();                 //place focus back in box
             }
-
             else
             {
                 lblNameError.Visible = false;
+                blnName = true;
+                acceptCheck();
             }
-
-        }
-
-        private void lblNameError_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void txtAddress1_Leave(object sender, EventArgs e)
@@ -219,6 +305,8 @@ namespace PizzaProject
             else
             {
                 lblAddressError.Visible = false;
+                blnAddress1 = true;
+                acceptCheck();
             }
         }
 
@@ -234,26 +322,28 @@ namespace PizzaProject
             else
             {
                 lblCityError.Visible = false;
+                blnCity = true;
+                acceptCheck();
             }
         }
-        private void lblZipCode_Click(object sender, EventArgs e)
-        {
 
-        }
         private void mtbZipCode_Validating(object sender, CancelEventArgs e)
         {
             if (mtbZipCode.Text.Length == 5 | mtbZipCode.Text.Length == 9)
             {
                 mtbZipCode.ForeColor = Color.Black;
+                blnZipCode = true;
+                acceptCheck();
             }
             else
             {
                 mtbZipCode.ForeColor = Color.Red;
                 e.Cancel = true;
+                
             }
         }
 
-        private void btnReset_Click(object sender, EventArgs e)
+        private void ResetForm()
         {
             foreach (Control c in grpCustomerInfo.Controls)
             {
@@ -306,28 +396,154 @@ namespace PizzaProject
                 }
             }
 
-            foreach (Control c in grpPricing.Controls)              //Clear combobox
+            foreach (Control y in grpPricing.Controls)              //Clear combobox
             {
-                if (c is ComboBox)
+                if (y is TextBox)                                  // Clear All Text Boxes
                 {
-                    ((ComboBox)c).Text = "";
+                    ((TextBox)y).Clear();
                 }
             }
 
             mtbPhone.Focus();
-
-
-
-
-
-
-
+            blnPhone = false;
+            blnName = false;
+            blnCity = false;
+            blnAddress1 = false;
+            blnZipCode = false;
+            btnAccept.Enabled = false;
+            cboState.SelectedItem = "MN";
+            cboPayment.SelectedItem = "CASH";
         }
 
-        private void lblCompanyName_Click(object sender, EventArgs e)
+        private void btnReset_Click(object sender, EventArgs e)
         {
+            ResetForm();
+        }
+
+        private void chkCheese_CheckedChanged(object sender, EventArgs e)
+        {
+            Pricing();
+        }
+
+        private void radSmall_CheckedChanged(object sender, EventArgs e)
+        {
+            Pricing();
+        }
+
+        private void radLarge_CheckedChanged(object sender, EventArgs e)
+        {
+            Pricing();
+        }
+
+        private void chkSausage_CheckedChanged(object sender, EventArgs e)
+        {
+            Pricing();
+        }
+
+        private void chkBlackOlives_CheckedChanged(object sender, EventArgs e)
+        {
+            Pricing();
+        }
+
+        private void chkHam_CheckedChanged(object sender, EventArgs e)
+        {
+            Pricing();
+        }
+
+        private void chkOnions_CheckedChanged(object sender, EventArgs e)
+        {
+            Pricing();
+        }
+
+        private void chkHamburger_CheckedChanged(object sender, EventArgs e)
+        {
+            Pricing();
+        }
+
+        private void chkMushrooms_CheckedChanged(object sender, EventArgs e)
+        {
+            Pricing();
+        }
+
+        private void mtbPhone_TextChanged(object sender, EventArgs e)
+        {
+            if (mtbPhone.Text.Length == 10)
+            {
+                CustSearch();
+            }
+        }
+
+        private void cboPayment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cboPayment.SelectedItem = "CASH";
+        }
+
+        private void txtName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && Convert.ToInt32(e.KeyChar) != 8 && !char.IsWhiteSpace(e.KeyChar))
+            {
+                errorProvider1.SetError(txtName, "Only letters allowed");
+                e.Handled = true;
+                txtName.Focus();
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void mtbPhone_TextChanged_1(object sender, EventArgs e)
+        {
+            if (mtbPhone.Text.Length == 10)
+            {
+                CustSearch();
+            }
+        }
+
+        private void btnAddCustomer_Click(object sender, EventArgs e)
+        {
+            string strConn = strDataSrc + strSQLparms;
+            SqlDataAdapter adaptSQL = new SqlDataAdapter(strSQL, connSQL);
+            SqlCommand cmdCust = new SqlCommand();
+            SqlCommandBuilder cmdBld = new SqlCommandBuilder(adaptSQL);
+            DataRow newCust;
+            newCust = dtCust.NewRow();   //datCust is the datatable
+            newCust["CustPhone"] = mtbPhone.Text;
+            newCust["CustName"] = txtName.Text;
+            newCust["CustAddress1"] = txtAddress1.Text;
+            newCust["CustAddress2"] = txtAddress2.Text;
+            newCust["CustCity"] = txtCity.Text;
+            newCust["CustState"] = cboState.Text;
+            newCust["CustZip"] = mtbZipCode.Text;
+            try
+            {
+                dtCust.Rows.Add(newCust);   //Add datarow to table
+                cmdBld.GetUpdateCommand();   //collect updates to datatable
+                adaptSQL.Update(dtCust);
+                MessageBox.Show("Customer Added!");
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Customer Add Failed!");
+            }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
     }
-}
+    }
+
      

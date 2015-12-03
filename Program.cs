@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PizzaProject
@@ -16,7 +13,8 @@ namespace PizzaProject
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMiPi());
+            Application.Run(new Splash());                          ///how splashh screen was entered before main form
+            Application.Run(new frmMiPi());     
         }
     }
 }

@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMiPi));
             this.grpCustomerInfo = new System.Windows.Forms.GroupBox();
+            this.btnAddCustomer = new System.Windows.Forms.Button();
             this.lblCityError = new System.Windows.Forms.Label();
             this.lblAddressError = new System.Windows.Forms.Label();
             this.lblNameError = new System.Windows.Forms.Label();
@@ -49,6 +50,7 @@
             this.lblAddress1 = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.lblPhone = new System.Windows.Forms.Label();
+            this.btnFindOrder = new System.Windows.Forms.Button();
             this.grpOrderInfo = new System.Windows.Forms.GroupBox();
             this.lblNumber = new System.Windows.Forms.Label();
             this.lblMaxQuanity = new System.Windows.Forms.Label();
@@ -74,9 +76,9 @@
             this.grpPayment = new System.Windows.Forms.GroupBox();
             this.cboPayment = new System.Windows.Forms.ComboBox();
             this.grpPricing = new System.Windows.Forms.GroupBox();
-            this.txtTotal = new System.Windows.Forms.TextBox();
-            this.txtTax = new System.Windows.Forms.TextBox();
-            this.txtSubtotal = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblTx = new System.Windows.Forms.Label();
+            this.lblSub = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.lblTax = new System.Windows.Forms.Label();
             this.lblSubtotal = new System.Windows.Forms.Label();
@@ -87,10 +89,28 @@
             this.btnAccept = new System.Windows.Forms.Button();
             this.btnPrice = new System.Windows.Forms.Button();
             this.lblDateTime = new System.Windows.Forms.Label();
-            this.lblFile = new System.Windows.Forms.Label();
-            this.lblPayment = new System.Windows.Forms.Label();
             this.lblCompanyName = new System.Windows.Forms.Label();
             this.tmrDT = new System.Windows.Forms.Timer(this.components);
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.mnuMainFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuMainFileCopy = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuMainFilePaste = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuMainFileClearClip = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.paymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cashToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.creditToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.visaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mastercardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.americanExpressToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuMainHelp = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuMainAbout = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnAddOrder = new System.Windows.Forms.Button();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.grpCustomerInfo.SuspendLayout();
             this.grpOrderInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuanity)).BeginInit();
@@ -100,10 +120,15 @@
             this.grpPayment.SuspendLayout();
             this.grpPricing.SuspendLayout();
             this.grpActions.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // grpCustomerInfo
             // 
+            this.grpCustomerInfo.Controls.Add(this.btnAddCustomer);
             this.grpCustomerInfo.Controls.Add(this.lblCityError);
             this.grpCustomerInfo.Controls.Add(this.lblAddressError);
             this.grpCustomerInfo.Controls.Add(this.lblNameError);
@@ -125,19 +150,32 @@
             this.grpCustomerInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpCustomerInfo.Location = new System.Drawing.Point(12, 111);
             this.grpCustomerInfo.Name = "grpCustomerInfo";
-            this.grpCustomerInfo.Size = new System.Drawing.Size(280, 493);
+            this.grpCustomerInfo.Size = new System.Drawing.Size(294, 493);
             this.grpCustomerInfo.TabIndex = 0;
             this.grpCustomerInfo.TabStop = false;
             this.grpCustomerInfo.Text = "Customer &Information";
             this.grpCustomerInfo.Enter += new System.EventHandler(this.grpCustomerInfo_Enter);
+            // 
+            // btnAddCustomer
+            // 
+            this.btnAddCustomer.BackColor = System.Drawing.Color.Goldenrod;
+            this.btnAddCustomer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddCustomer.Location = new System.Drawing.Point(96, 400);
+            this.btnAddCustomer.Name = "btnAddCustomer";
+            this.btnAddCustomer.Size = new System.Drawing.Size(154, 28);
+            this.btnAddCustomer.TabIndex = 5;
+            this.btnAddCustomer.Text = "Add Customer";
+            this.btnAddCustomer.UseVisualStyleBackColor = false;
+            this.btnAddCustomer.Click += new System.EventHandler(this.btnAddCustomer_Click);
             // 
             // lblCityError
             // 
             this.lblCityError.AutoEllipsis = true;
             this.lblCityError.AutoSize = true;
             this.lblCityError.BackColor = System.Drawing.Color.Transparent;
-            this.lblCityError.ForeColor = System.Drawing.Color.Firebrick;
-            this.lblCityError.Location = new System.Drawing.Point(77, 255);
+            this.lblCityError.ForeColor = System.Drawing.Color.Maroon;
+            this.lblCityError.Location = new System.Drawing.Point(92, 263);
             this.lblCityError.Name = "lblCityError";
             this.lblCityError.Size = new System.Drawing.Size(96, 20);
             this.lblCityError.TabIndex = 17;
@@ -148,8 +186,8 @@
             this.lblAddressError.AutoEllipsis = true;
             this.lblAddressError.AutoSize = true;
             this.lblAddressError.BackColor = System.Drawing.Color.Transparent;
-            this.lblAddressError.ForeColor = System.Drawing.Color.Firebrick;
-            this.lblAddressError.Location = new System.Drawing.Point(77, 161);
+            this.lblAddressError.ForeColor = System.Drawing.Color.Maroon;
+            this.lblAddressError.Location = new System.Drawing.Point(92, 163);
             this.lblAddressError.Name = "lblAddressError";
             this.lblAddressError.Size = new System.Drawing.Size(132, 20);
             this.lblAddressError.TabIndex = 16;
@@ -160,92 +198,90 @@
             this.lblNameError.AutoEllipsis = true;
             this.lblNameError.AutoSize = true;
             this.lblNameError.BackColor = System.Drawing.Color.Transparent;
-            this.lblNameError.ForeColor = System.Drawing.Color.Firebrick;
-            this.lblNameError.Location = new System.Drawing.Point(77, 113);
+            this.lblNameError.ForeColor = System.Drawing.Color.Maroon;
+            this.lblNameError.Location = new System.Drawing.Point(92, 115);
             this.lblNameError.Name = "lblNameError";
             this.lblNameError.Size = new System.Drawing.Size(112, 20);
             this.lblNameError.TabIndex = 15;
             this.lblNameError.Text = "Invalid Name";
-            this.lblNameError.Click += new System.EventHandler(this.lblNameError_Click);
             // 
             // lblPhoneNbrError
             // 
             this.lblPhoneNbrError.AutoEllipsis = true;
             this.lblPhoneNbrError.AutoSize = true;
             this.lblPhoneNbrError.BackColor = System.Drawing.Color.Transparent;
-            this.lblPhoneNbrError.ForeColor = System.Drawing.Color.Firebrick;
-            this.lblPhoneNbrError.Location = new System.Drawing.Point(77, 64);
+            this.lblPhoneNbrError.ForeColor = System.Drawing.Color.Maroon;
+            this.lblPhoneNbrError.Location = new System.Drawing.Point(92, 67);
             this.lblPhoneNbrError.Name = "lblPhoneNbrError";
             this.lblPhoneNbrError.Size = new System.Drawing.Size(184, 20);
             this.lblPhoneNbrError.TabIndex = 14;
             this.lblPhoneNbrError.Text = "Invalid Phone Number";
-            this.lblPhoneNbrError.Click += new System.EventHandler(this.lblPhoneNbrError_Click);
             // 
             // mtbZipCode
             // 
             this.mtbZipCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mtbZipCode.Location = new System.Drawing.Point(96, 327);
+            this.mtbZipCode.Location = new System.Drawing.Point(96, 351);
             this.mtbZipCode.Mask = "00000-9999";
             this.mtbZipCode.Name = "mtbZipCode";
             this.mtbZipCode.Size = new System.Drawing.Size(77, 22);
             this.mtbZipCode.TabIndex = 13;
             this.mtbZipCode.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
-            this.mtbZipCode.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mtbZipCode_MaskInputRejected);
             this.mtbZipCode.Validating += new System.ComponentModel.CancelEventHandler(this.mtbZipCode_Validating);
             // 
             // cboState
             // 
-            this.cboState.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboState.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.cboState.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboState.DropDownWidth = 61;
+            this.cboState.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboState.FormattingEnabled = true;
-            this.cboState.Location = new System.Drawing.Point(96, 281);
+            this.cboState.IntegralHeight = false;
+            this.cboState.ItemHeight = 20;
+            this.cboState.Location = new System.Drawing.Point(96, 296);
             this.cboState.MaxDropDownItems = 10;
             this.cboState.MaxLength = 2;
             this.cboState.Name = "cboState";
-            this.cboState.Size = new System.Drawing.Size(47, 24);
+            this.cboState.Size = new System.Drawing.Size(61, 28);
             this.cboState.TabIndex = 11;
-            this.cboState.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // txtCity
             // 
             this.txtCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCity.Location = new System.Drawing.Point(96, 230);
+            this.txtCity.Location = new System.Drawing.Point(96, 234);
             this.txtCity.MaxLength = 25;
             this.txtCity.Name = "txtCity";
             this.txtCity.Size = new System.Drawing.Size(178, 22);
             this.txtCity.TabIndex = 9;
-            this.txtCity.TextChanged += new System.EventHandler(this.txtCity_TextChanged);
             this.txtCity.Leave += new System.EventHandler(this.txtCity_Leave);
             // 
             // txtAddress2
             // 
             this.txtAddress2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddress2.Location = new System.Drawing.Point(96, 183);
+            this.txtAddress2.Location = new System.Drawing.Point(96, 186);
             this.txtAddress2.MaxLength = 25;
             this.txtAddress2.Name = "txtAddress2";
             this.txtAddress2.Size = new System.Drawing.Size(178, 22);
             this.txtAddress2.TabIndex = 7;
-            this.txtAddress2.TextChanged += new System.EventHandler(this.txtAddress2_TextChanged);
             // 
             // txtAddress1
             // 
             this.txtAddress1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddress1.Location = new System.Drawing.Point(96, 136);
+            this.txtAddress1.Location = new System.Drawing.Point(96, 138);
             this.txtAddress1.MaxLength = 25;
             this.txtAddress1.Name = "txtAddress1";
             this.txtAddress1.Size = new System.Drawing.Size(178, 22);
             this.txtAddress1.TabIndex = 5;
-            this.txtAddress1.TextChanged += new System.EventHandler(this.txtAddress1_TextChanged);
             this.txtAddress1.Leave += new System.EventHandler(this.txtAddress1_Leave);
             // 
             // txtName
             // 
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(96, 89);
+            this.txtName.Location = new System.Drawing.Point(96, 90);
             this.txtName.MaxLength = 25;
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(178, 22);
             this.txtName.TabIndex = 3;
-            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
+            this.txtName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtName_KeyPress);
             this.txtName.Leave += new System.EventHandler(this.txtName_Leave);
             // 
             // mtbPhone
@@ -257,84 +293,91 @@
             this.mtbPhone.Size = new System.Drawing.Size(133, 22);
             this.mtbPhone.TabIndex = 1;
             this.mtbPhone.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
-            this.mtbPhone.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mtbPhone_MaskInputRejected);
+            this.mtbPhone.TextChanged += new System.EventHandler(this.mtbPhone_TextChanged_1);
             this.mtbPhone.Leave += new System.EventHandler(this.mtbPhone_Leave);
             // 
             // lblZipCode
             // 
             this.lblZipCode.AutoSize = true;
-            this.lblZipCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblZipCode.Location = new System.Drawing.Point(6, 330);
+            this.lblZipCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblZipCode.Location = new System.Drawing.Point(6, 357);
             this.lblZipCode.Name = "lblZipCode";
-            this.lblZipCode.Size = new System.Drawing.Size(69, 16);
+            this.lblZipCode.Size = new System.Drawing.Size(78, 20);
             this.lblZipCode.TabIndex = 12;
             this.lblZipCode.Text = "Zipcode:";
-            this.lblZipCode.Click += new System.EventHandler(this.lblZipCode_Click);
             // 
             // lblState
             // 
             this.lblState.AutoSize = true;
-            this.lblState.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblState.Location = new System.Drawing.Point(6, 284);
+            this.lblState.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblState.Location = new System.Drawing.Point(6, 305);
             this.lblState.Name = "lblState";
-            this.lblState.Size = new System.Drawing.Size(48, 16);
+            this.lblState.Size = new System.Drawing.Size(58, 20);
             this.lblState.TabIndex = 10;
             this.lblState.Text = "State:";
-            this.lblState.Click += new System.EventHandler(this.label3_Click);
             // 
             // lblCity
             // 
             this.lblCity.AutoSize = true;
-            this.lblCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCity.Location = new System.Drawing.Point(6, 233);
+            this.lblCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCity.Location = new System.Drawing.Point(9, 240);
             this.lblCity.Name = "lblCity";
-            this.lblCity.Size = new System.Drawing.Size(38, 16);
+            this.lblCity.Size = new System.Drawing.Size(44, 20);
             this.lblCity.TabIndex = 8;
             this.lblCity.Text = "&City:";
             // 
             // lblAddress2
             // 
             this.lblAddress2.AutoSize = true;
-            this.lblAddress2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddress2.Location = new System.Drawing.Point(6, 186);
+            this.lblAddress2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddress2.Location = new System.Drawing.Point(6, 192);
             this.lblAddress2.Name = "lblAddress2";
-            this.lblAddress2.Size = new System.Drawing.Size(78, 16);
+            this.lblAddress2.Size = new System.Drawing.Size(90, 20);
             this.lblAddress2.TabIndex = 6;
             this.lblAddress2.Text = "Address2:";
             // 
             // lblAddress1
             // 
             this.lblAddress1.AutoSize = true;
-            this.lblAddress1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddress1.Location = new System.Drawing.Point(6, 139);
+            this.lblAddress1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddress1.Location = new System.Drawing.Point(6, 145);
             this.lblAddress1.Name = "lblAddress1";
-            this.lblAddress1.Size = new System.Drawing.Size(78, 16);
+            this.lblAddress1.Size = new System.Drawing.Size(90, 20);
             this.lblAddress1.TabIndex = 4;
             this.lblAddress1.Text = "Address1:";
-            this.lblAddress1.Click += new System.EventHandler(this.lblAddress1_Click);
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(6, 92);
+            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Location = new System.Drawing.Point(6, 95);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(53, 16);
+            this.lblName.Size = new System.Drawing.Size(60, 20);
             this.lblName.TabIndex = 2;
             this.lblName.Text = "Name:";
             this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblName.Click += new System.EventHandler(this.lblName_Click);
             // 
             // lblPhone
             // 
             this.lblPhone.AutoSize = true;
-            this.lblPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhone.Location = new System.Drawing.Point(6, 45);
+            this.lblPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhone.Location = new System.Drawing.Point(6, 44);
             this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(56, 16);
+            this.lblPhone.Size = new System.Drawing.Size(65, 20);
             this.lblPhone.TabIndex = 0;
             this.lblPhone.Text = "Phone:";
-            this.lblPhone.Click += new System.EventHandler(this.lblPhone_Click);
+            // 
+            // btnFindOrder
+            // 
+            this.btnFindOrder.BackColor = System.Drawing.Color.Goldenrod;
+            this.btnFindOrder.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFindOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFindOrder.Location = new System.Drawing.Point(606, 405);
+            this.btnFindOrder.Name = "btnFindOrder";
+            this.btnFindOrder.Size = new System.Drawing.Size(225, 34);
+            this.btnFindOrder.TabIndex = 18;
+            this.btnFindOrder.Text = "Find Order";
+            this.btnFindOrder.UseVisualStyleBackColor = false;
             // 
             // grpOrderInfo
             // 
@@ -355,11 +398,11 @@
             // 
             // lblNumber
             // 
-            this.lblNumber.Location = new System.Drawing.Point(182, 22);
+            this.lblNumber.Location = new System.Drawing.Point(176, 22);
             this.lblNumber.Name = "lblNumber";
             this.lblNumber.Size = new System.Drawing.Size(57, 22);
             this.lblNumber.TabIndex = 7;
-            this.lblNumber.Text = "0001";
+            this.lblNumber.Text = "0";
             // 
             // lblMaxQuanity
             // 
@@ -432,7 +475,7 @@
             this.chkMushrooms.TabIndex = 9;
             this.chkMushrooms.Text = "Mushrooms";
             this.chkMushrooms.UseVisualStyleBackColor = true;
-            //this.chkMushrooms.CheckedChanged += new System.EventHandler(this.chkMushrooms_CheckedChanged);
+            this.chkMushrooms.CheckedChanged += new System.EventHandler(this.chkMushrooms_CheckedChanged);
             // 
             // chkHamburger
             // 
@@ -444,7 +487,7 @@
             this.chkHamburger.TabIndex = 8;
             this.chkHamburger.Text = "Hamburger";
             this.chkHamburger.UseVisualStyleBackColor = true;
-            //this.chkHamburger.CheckedChanged += new System.EventHandler(this.checkBox9_CheckedChanged);
+            this.chkHamburger.CheckedChanged += new System.EventHandler(this.chkHamburger_CheckedChanged);
             // 
             // chkOnions
             // 
@@ -456,7 +499,7 @@
             this.chkOnions.TabIndex = 7;
             this.chkOnions.Text = "Onions";
             this.chkOnions.UseVisualStyleBackColor = true;
-            //this.chkOnions.CheckedChanged += new System.EventHandler(this.chkOnions_CheckedChanged);
+            this.chkOnions.CheckedChanged += new System.EventHandler(this.chkOnions_CheckedChanged);
             // 
             // chkPineapple
             // 
@@ -468,7 +511,7 @@
             this.chkPineapple.TabIndex = 6;
             this.chkPineapple.Text = "Pineapple";
             this.chkPineapple.UseVisualStyleBackColor = true;
-            this.chkPineapple.CheckedChanged += new System.EventHandler(this.checkBox7_CheckedChanged);
+            this.chkPineapple.CheckedChanged += new System.EventHandler(this.chkPineapple_CheckedChanged);
             // 
             // chkHam
             // 
@@ -480,7 +523,7 @@
             this.chkHam.TabIndex = 5;
             this.chkHam.Text = "Ham";
             this.chkHam.UseVisualStyleBackColor = true;
-            //this.chkHam.CheckedChanged += new System.EventHandler(this.chkHam_CheckedChanged);
+            this.chkHam.CheckedChanged += new System.EventHandler(this.chkHam_CheckedChanged);
             // 
             // chkBlackOlives
             // 
@@ -492,7 +535,7 @@
             this.chkBlackOlives.TabIndex = 4;
             this.chkBlackOlives.Text = "Black Olives";
             this.chkBlackOlives.UseVisualStyleBackColor = true;
-            //this.chkBlackOlives.CheckedChanged += new System.EventHandler(this.chkBlackOlives_CheckedChanged);
+            this.chkBlackOlives.CheckedChanged += new System.EventHandler(this.chkBlackOlives_CheckedChanged);
             // 
             // chkGreenOlives
             // 
@@ -504,7 +547,7 @@
             this.chkGreenOlives.TabIndex = 3;
             this.chkGreenOlives.Text = "&Green Olives";
             this.chkGreenOlives.UseVisualStyleBackColor = true;
-            this.chkGreenOlives.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
+            this.chkGreenOlives.CheckedChanged += new System.EventHandler(this.chkGreenOlives_CheckedChanged);
             // 
             // chkPepperoni
             // 
@@ -516,7 +559,7 @@
             this.chkPepperoni.TabIndex = 2;
             this.chkPepperoni.Text = "Pepperoni";
             this.chkPepperoni.UseVisualStyleBackColor = true;
-            this.chkPepperoni.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
+            this.chkPepperoni.CheckedChanged += new System.EventHandler(this.chkPepperoni_CheckedChanged);
             // 
             // chkSausage
             // 
@@ -528,7 +571,7 @@
             this.chkSausage.TabIndex = 1;
             this.chkSausage.Text = "Sausage";
             this.chkSausage.UseVisualStyleBackColor = true;
-            //this.chkSausage.CheckedChanged += new System.EventHandler(this.chkSausage_CheckedChanged);
+            this.chkSausage.CheckedChanged += new System.EventHandler(this.chkSausage_CheckedChanged);
             // 
             // chkCheese
             // 
@@ -540,7 +583,7 @@
             this.chkCheese.TabIndex = 0;
             this.chkCheese.Text = "C&heese";
             this.chkCheese.UseVisualStyleBackColor = true;
-            //this.chkCheese.CheckedChanged += new System.EventHandler(this.chkCheese_CheckedChanged);
+            this.chkCheese.CheckedChanged += new System.EventHandler(this.chkCheese_CheckedChanged);
             // 
             // grpSize
             // 
@@ -566,7 +609,7 @@
             this.radLarge.TabStop = true;
             this.radLarge.Text = "Large ($12.00) ";
             this.radLarge.UseVisualStyleBackColor = true;
-            //this.radLarge.CheckedChanged += new System.EventHandler(this.radLarge_CheckedChanged);
+            this.radLarge.CheckedChanged += new System.EventHandler(this.radLarge_CheckedChanged);
             // 
             // radMedium
             // 
@@ -582,12 +625,13 @@
             this.radMedium.TabStop = true;
             this.radMedium.Text = "Medium ($10.00)";
             this.radMedium.UseVisualStyleBackColor = true;
-            this.radMedium.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            this.radMedium.CheckedChanged += new System.EventHandler(this.radMedium_CheckedChanged);
             // 
             // radSmall
             // 
             this.radSmall.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.radSmall.AutoSize = true;
+            this.radSmall.BackColor = System.Drawing.Color.Transparent;
             this.radSmall.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radSmall.Location = new System.Drawing.Point(38, 25);
             this.radSmall.Name = "radSmall";
@@ -595,8 +639,8 @@
             this.radSmall.TabIndex = 0;
             this.radSmall.TabStop = true;
             this.radSmall.Text = "Small ($8.00)";
-            this.radSmall.UseVisualStyleBackColor = true;
-            //this.radSmall.CheckedChanged += new System.EventHandler(this.radSmall_CheckedChanged);
+            this.radSmall.UseVisualStyleBackColor = false;
+            this.radSmall.CheckedChanged += new System.EventHandler(this.radSmall_CheckedChanged);
             // 
             // lblOrderNumber
             // 
@@ -609,10 +653,11 @@
             // 
             // picPizza
             // 
+            this.picPizza.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.picPizza.Image = ((System.Drawing.Image)(resources.GetObject("picPizza.Image")));
-            this.picPizza.Location = new System.Drawing.Point(606, 111);
+            this.picPizza.Location = new System.Drawing.Point(846, 111);
             this.picPizza.Name = "picPizza";
-            this.picPizza.Size = new System.Drawing.Size(268, 131);
+            this.picPizza.Size = new System.Drawing.Size(426, 280);
             this.picPizza.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picPizza.TabIndex = 2;
             this.picPizza.TabStop = false;
@@ -621,7 +666,7 @@
             // 
             this.grpPayment.Controls.Add(this.cboPayment);
             this.grpPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpPayment.Location = new System.Drawing.Point(606, 259);
+            this.grpPayment.Location = new System.Drawing.Point(606, 111);
             this.grpPayment.Name = "grpPayment";
             this.grpPayment.Size = new System.Drawing.Size(225, 60);
             this.grpPayment.TabIndex = 3;
@@ -630,6 +675,7 @@
             // 
             // cboPayment
             // 
+            this.cboPayment.BackColor = System.Drawing.SystemColors.ControlLight;
             this.cboPayment.DisplayMember = "Cash";
             this.cboPayment.FormattingEnabled = true;
             this.cboPayment.Items.AddRange(new object[] {
@@ -638,64 +684,70 @@
             "Visa",
             "Mastercard",
             "American Express"});
-            this.cboPayment.Location = new System.Drawing.Point(6, 23);
+            this.cboPayment.Location = new System.Drawing.Point(10, 22);
             this.cboPayment.Name = "cboPayment";
             this.cboPayment.Size = new System.Drawing.Size(176, 28);
             this.cboPayment.TabIndex = 0;
+            this.cboPayment.SelectedIndexChanged += new System.EventHandler(this.cboPayment_SelectedIndexChanged);
             // 
             // grpPricing
             // 
-            this.grpPricing.Controls.Add(this.txtTotal);
-            this.grpPricing.Controls.Add(this.txtTax);
-            this.grpPricing.Controls.Add(this.txtSubtotal);
+            this.grpPricing.Controls.Add(this.label1);
+            this.grpPricing.Controls.Add(this.lblTx);
+            this.grpPricing.Controls.Add(this.lblSub);
             this.grpPricing.Controls.Add(this.lblTotal);
             this.grpPricing.Controls.Add(this.lblTax);
             this.grpPricing.Controls.Add(this.lblSubtotal);
             this.grpPricing.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpPricing.Location = new System.Drawing.Point(606, 336);
+            this.grpPricing.Location = new System.Drawing.Point(606, 183);
             this.grpPricing.Name = "grpPricing";
             this.grpPricing.Size = new System.Drawing.Size(225, 150);
             this.grpPricing.TabIndex = 4;
             this.grpPricing.TabStop = false;
             this.grpPricing.Text = "P&ricing";
             // 
-            // txtTotal
+            // label1
             // 
-            this.txtTotal.Location = new System.Drawing.Point(78, 102);
-            this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(139, 26);
-            this.txtTotal.TabIndex = 7;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(78, 103);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(57, 20);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "label1";
             // 
-            // txtTax
+            // lblTx
             // 
-            this.txtTax.Location = new System.Drawing.Point(78, 58);
-            this.txtTax.Name = "txtTax";
-            this.txtTax.Size = new System.Drawing.Size(139, 26);
-            this.txtTax.TabIndex = 6;
+            this.lblTx.AutoSize = true;
+            this.lblTx.Location = new System.Drawing.Point(78, 66);
+            this.lblTx.Name = "lblTx";
+            this.lblTx.Size = new System.Drawing.Size(57, 20);
+            this.lblTx.TabIndex = 9;
+            this.lblTx.Text = "label1";
             // 
-            // txtSubtotal
+            // lblSub
             // 
-            this.txtSubtotal.Location = new System.Drawing.Point(78, 21);
-            this.txtSubtotal.Name = "txtSubtotal";
-            this.txtSubtotal.Size = new System.Drawing.Size(139, 26);
-            this.txtSubtotal.TabIndex = 5;
+            this.lblSub.AutoSize = true;
+            this.lblSub.Location = new System.Drawing.Point(78, 29);
+            this.lblSub.Name = "lblSub";
+            this.lblSub.Size = new System.Drawing.Size(62, 20);
+            this.lblSub.TabIndex = 8;
+            this.lblSub.Text = "label 1";
             // 
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.Location = new System.Drawing.Point(24, 108);
+            this.lblTotal.Location = new System.Drawing.Point(24, 107);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(48, 16);
             this.lblTotal.TabIndex = 2;
             this.lblTotal.Text = "Total:";
-            this.lblTotal.Click += new System.EventHandler(this.label3_Click_1);
             // 
             // lblTax
             // 
             this.lblTax.AutoSize = true;
             this.lblTax.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTax.Location = new System.Drawing.Point(34, 64);
+            this.lblTax.Location = new System.Drawing.Point(34, 68);
             this.lblTax.Name = "lblTax";
             this.lblTax.Size = new System.Drawing.Size(38, 16);
             this.lblTax.TabIndex = 1;
@@ -739,6 +791,7 @@
             // 
             // btnClose
             // 
+            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnClose.Location = new System.Drawing.Point(355, 25);
             this.btnClose.Name = "btnClose";
@@ -750,6 +803,7 @@
             // 
             // btnReset
             // 
+            this.btnReset.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReset.Location = new System.Drawing.Point(240, 25);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(92, 53);
@@ -760,16 +814,18 @@
             // 
             // btnAccept
             // 
+            this.btnAccept.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAccept.Location = new System.Drawing.Point(125, 25);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(92, 53);
             this.btnAccept.TabIndex = 1;
             this.btnAccept.Text = "&Accept";
             this.btnAccept.UseVisualStyleBackColor = true;
-            this.btnAccept.Click += new System.EventHandler(this.button2_Click);
+            this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
             // 
             // btnPrice
             // 
+            this.btnPrice.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPrice.Location = new System.Drawing.Point(10, 25);
             this.btnPrice.Name = "btnPrice";
             this.btnPrice.Size = new System.Drawing.Size(92, 53);
@@ -780,46 +836,26 @@
             // 
             // lblDateTime
             // 
-            this.lblDateTime.Location = new System.Drawing.Point(900, 9);
+            this.lblDateTime.BackColor = System.Drawing.Color.Transparent;
+            this.lblDateTime.ForeColor = System.Drawing.Color.Black;
+            this.lblDateTime.Location = new System.Drawing.Point(843, 34);
             this.lblDateTime.Name = "lblDateTime";
-            this.lblDateTime.Size = new System.Drawing.Size(392, 27);
+            this.lblDateTime.Size = new System.Drawing.Size(351, 27);
             this.lblDateTime.TabIndex = 6;
-            this.lblDateTime.Click += new System.EventHandler(this.lblDateTime_Click);
-            // 
-            // lblFile
-            // 
-            this.lblFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFile.Location = new System.Drawing.Point(9, 9);
-            this.lblFile.Name = "lblFile";
-            this.lblFile.Size = new System.Drawing.Size(35, 17);
-            this.lblFile.TabIndex = 7;
-            this.lblFile.Text = "&File";
-            this.lblFile.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // lblPayment
-            // 
-            this.lblPayment.AutoSize = true;
-            this.lblPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPayment.Location = new System.Drawing.Point(50, 9);
-            this.lblPayment.Name = "lblPayment";
-            this.lblPayment.Size = new System.Drawing.Size(70, 17);
-            this.lblPayment.TabIndex = 8;
-            this.lblPayment.Text = "Pay&ment";
-            this.lblPayment.Click += new System.EventHandler(this.lblPayment_Click);
+            this.lblDateTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblCompanyName
             // 
             this.lblCompanyName.AutoSize = true;
-            this.lblCompanyName.BackColor = System.Drawing.Color.Transparent;
-            this.lblCompanyName.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblCompanyName.BackColor = System.Drawing.Color.Maroon;
+            this.lblCompanyName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblCompanyName.Font = new System.Drawing.Font("Papyrus", 39.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCompanyName.ForeColor = System.Drawing.Color.Crimson;
-            this.lblCompanyName.Location = new System.Drawing.Point(473, 9);
+            this.lblCompanyName.ForeColor = System.Drawing.Color.Goldenrod;
+            this.lblCompanyName.Location = new System.Drawing.Point(425, 0);
             this.lblCompanyName.Name = "lblCompanyName";
             this.lblCompanyName.Size = new System.Drawing.Size(341, 86);
             this.lblCompanyName.TabIndex = 9;
             this.lblCompanyName.Text = "MiPi Pizzeria";
-            this.lblCompanyName.Click += new System.EventHandler(this.lblCompanyName_Click);
             // 
             // tmrDT
             // 
@@ -827,30 +863,200 @@
             this.tmrDT.Interval = 1000;
             this.tmrDT.Tick += new System.EventHandler(this.tmrDT_Tick);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.BackColor = System.Drawing.Color.Olive;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuMainFile,
+            this.paymentToolStripMenuItem,
+            this.mnuMainHelp,
+            this.mnuMainAbout});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1284, 25);
+            this.menuStrip1.TabIndex = 10;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // mnuMainFile
+            // 
+            this.mnuMainFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuMainFileCopy,
+            this.mnuMainFilePaste,
+            this.toolStripSeparator1,
+            this.mnuMainFileClearClip,
+            this.toolStripSeparator2,
+            this.exitToolStripMenuItem});
+            this.mnuMainFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mnuMainFile.Name = "mnuMainFile";
+            this.mnuMainFile.Size = new System.Drawing.Size(42, 21);
+            this.mnuMainFile.Text = "&File";
+            // 
+            // mnuMainFileCopy
+            // 
+            this.mnuMainFileCopy.Name = "mnuMainFileCopy";
+            this.mnuMainFileCopy.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
+            this.mnuMainFileCopy.Size = new System.Drawing.Size(234, 22);
+            this.mnuMainFileCopy.Text = "&Cut                 ";
+            // 
+            // mnuMainFilePaste
+            // 
+            this.mnuMainFilePaste.Name = "mnuMainFilePaste";
+            this.mnuMainFilePaste.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
+            this.mnuMainFilePaste.Size = new System.Drawing.Size(234, 22);
+            this.mnuMainFilePaste.Text = "Pa&ste";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(231, 6);
+            // 
+            // mnuMainFileClearClip
+            // 
+            this.mnuMainFileClearClip.Name = "mnuMainFileClearClip";
+            this.mnuMainFileClearClip.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F10)));
+            this.mnuMainFileClearClip.Size = new System.Drawing.Size(234, 22);
+            this.mnuMainFileClearClip.Text = "Clear C&lipboard";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(231, 6);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.X)));
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
+            this.exitToolStripMenuItem.Text = "E&xit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // paymentToolStripMenuItem
+            // 
+            this.paymentToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cashToolStripMenuItem,
+            this.creditToolStripMenuItem,
+            this.visaToolStripMenuItem,
+            this.mastercardToolStripMenuItem,
+            this.americanExpressToolStripMenuItem});
+            this.paymentToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.paymentToolStripMenuItem.Name = "paymentToolStripMenuItem";
+            this.paymentToolStripMenuItem.Size = new System.Drawing.Size(73, 21);
+            this.paymentToolStripMenuItem.Text = "Pay&ment";
+            // 
+            // cashToolStripMenuItem
+            // 
+            this.cashToolStripMenuItem.Name = "cashToolStripMenuItem";
+            this.cashToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.cashToolStripMenuItem.Text = "Cash";
+            // 
+            // creditToolStripMenuItem
+            // 
+            this.creditToolStripMenuItem.Name = "creditToolStripMenuItem";
+            this.creditToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.creditToolStripMenuItem.Text = "Credit";
+            // 
+            // visaToolStripMenuItem
+            // 
+            this.visaToolStripMenuItem.Name = "visaToolStripMenuItem";
+            this.visaToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.visaToolStripMenuItem.Text = "Visa";
+            // 
+            // mastercardToolStripMenuItem
+            // 
+            this.mastercardToolStripMenuItem.Name = "mastercardToolStripMenuItem";
+            this.mastercardToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.mastercardToolStripMenuItem.Text = "Mastercard";
+            // 
+            // americanExpressToolStripMenuItem
+            // 
+            this.americanExpressToolStripMenuItem.Name = "americanExpressToolStripMenuItem";
+            this.americanExpressToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.americanExpressToolStripMenuItem.Text = "American Express";
+            // 
+            // mnuMainHelp
+            // 
+            this.mnuMainHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.mnuMainHelp.Name = "mnuMainHelp";
+            this.mnuMainHelp.Size = new System.Drawing.Size(49, 21);
+            this.mnuMainHelp.Text = "H&elp";
+            // 
+            // mnuMainAbout
+            // 
+            this.mnuMainAbout.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.mnuMainAbout.Name = "mnuMainAbout";
+            this.mnuMainAbout.Size = new System.Drawing.Size(55, 21);
+            this.mnuMainAbout.Text = "Abo&ut";
+            // 
+            // btnAddOrder
+            // 
+            this.btnAddOrder.BackColor = System.Drawing.Color.Goldenrod;
+            this.btnAddOrder.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddOrder.Location = new System.Drawing.Point(606, 362);
+            this.btnAddOrder.Name = "btnAddOrder";
+            this.btnAddOrder.Size = new System.Drawing.Size(225, 34);
+            this.btnAddOrder.TabIndex = 19;
+            this.btnAddOrder.Text = "Add Order";
+            this.btnAddOrder.UseVisualStyleBackColor = false;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.BackgroundColor = System.Drawing.Color.Olive;
+            this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dataGridView2.Location = new System.Drawing.Point(864, 328);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.Size = new System.Drawing.Size(148, 45);
+            this.dataGridView2.TabIndex = 20;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(222, 0);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(473, 64);
+            this.dataGridView1.TabIndex = 21;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
             // frmMiPi
             // 
             this.AcceptButton = this.btnAccept;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DarkGray;
+            this.BackColor = System.Drawing.Color.Olive;
             this.CancelButton = this.btnClose;
-            this.ClientSize = new System.Drawing.Size(1294, 612);
+            this.ClientSize = new System.Drawing.Size(1284, 634);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.btnAddOrder);
             this.Controls.Add(this.lblCompanyName);
-            this.Controls.Add(this.lblPayment);
-            this.Controls.Add(this.lblFile);
+            this.Controls.Add(this.btnFindOrder);
             this.Controls.Add(this.lblDateTime);
             this.Controls.Add(this.grpActions);
-            this.Controls.Add(this.grpPricing);
             this.Controls.Add(this.grpPayment);
             this.Controls.Add(this.picPizza);
             this.Controls.Add(this.grpOrderInfo);
             this.Controls.Add(this.grpCustomerInfo);
+            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.grpPricing);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmMiPi";
             this.Text = "MiPi Order Entry Program";
             this.TopMost = true;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMiPi_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmMiPi_FormClosed);
             this.Load += new System.EventHandler(this.frmMiPi_Load);
             this.grpCustomerInfo.ResumeLayout(false);
             this.grpCustomerInfo.PerformLayout();
@@ -867,6 +1073,11 @@
             this.grpPricing.PerformLayout();
             this.grpActions.ResumeLayout(false);
             this.grpActions.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -884,7 +1095,6 @@
         private System.Windows.Forms.Label lblAddress2;
         private System.Windows.Forms.Label lblAddress1;
         private System.Windows.Forms.MaskedTextBox mtbZipCode;
-        private System.Windows.Forms.ComboBox cboState;
         private System.Windows.Forms.TextBox txtCity;
         private System.Windows.Forms.TextBox txtAddress2;
         private System.Windows.Forms.TextBox txtAddress1;
@@ -894,7 +1104,6 @@
         private System.Windows.Forms.GroupBox grpSize;
         private System.Windows.Forms.RadioButton radLarge;
         private System.Windows.Forms.RadioButton radMedium;
-        private System.Windows.Forms.RadioButton radSmall;
         private System.Windows.Forms.Label lblOrderNumber;
         private System.Windows.Forms.GroupBox grpToppings;
         private System.Windows.Forms.CheckBox chkMushrooms;
@@ -922,8 +1131,6 @@
         private System.Windows.Forms.Button btnAccept;
         private System.Windows.Forms.Button btnPrice;
         private System.Windows.Forms.Label lblDateTime;
-        private System.Windows.Forms.Label lblFile;
-        private System.Windows.Forms.Label lblPayment;
         private System.Windows.Forms.CheckBox chkMute;
         private System.Windows.Forms.Label lblNumber;
         private System.Windows.Forms.Label lblCompanyName;
@@ -932,9 +1139,33 @@
         private System.Windows.Forms.Label lblNameError;
         private System.Windows.Forms.Label lblAddressError;
         private System.Windows.Forms.Label lblCityError;
-        private System.Windows.Forms.TextBox txtTotal;
-        private System.Windows.Forms.TextBox txtTax;
-        private System.Windows.Forms.TextBox txtSubtotal;
+        internal System.Windows.Forms.ComboBox cboState;
+        internal System.Windows.Forms.RadioButton radSmall;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem mnuMainFile;
+        private System.Windows.Forms.ToolStripMenuItem mnuMainFileCopy;
+        private System.Windows.Forms.ToolStripMenuItem paymentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cashToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem creditToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem visaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mastercardToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem americanExpressToolStripMenuItem;
+        private System.Windows.Forms.Button btnAddCustomer;
+        private System.Windows.Forms.Button btnFindOrder;
+        private System.Windows.Forms.Button btnAddOrder;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.ToolStripMenuItem mnuMainHelp;
+        private System.Windows.Forms.ToolStripMenuItem mnuMainAbout;
+        private System.Windows.Forms.ToolStripMenuItem mnuMainFilePaste;
+        private System.Windows.Forms.ToolStripMenuItem mnuMainFileClearClip;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label lblSub;
+        private System.Windows.Forms.Label lblTx;
+        private System.Windows.Forms.Label label1;
     }
 }
 

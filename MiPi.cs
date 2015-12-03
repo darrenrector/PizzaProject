@@ -113,7 +113,7 @@ namespace PizzaProject
 
 
 
-        private void Pricing()
+        private void Pricing() //Dynamic pricing
         {
             if (radSmall.Checked)
             { sglPrice = 8.0f; }
@@ -182,10 +182,6 @@ namespace PizzaProject
 
         private void frmMiPi_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'pizzaDataSet.Customers' table. You can move, or remove it, as needed.
-            //this.customersTableAdapter.Fill(this.pizzaDataSet.Customers);
-            radLarge.Checked = true; //default radio button checked
-            cboPayment.SelectedItem = "CASH";
 
             string strFilePath = Application.StartupPath + "/../../StateAbbrev.txt";
             string strState;

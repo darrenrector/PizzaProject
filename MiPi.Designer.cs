@@ -993,7 +993,7 @@
             this.btnAddOrder.BackColor = System.Drawing.Color.Goldenrod;
             this.btnAddOrder.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddOrder.Location = new System.Drawing.Point(606, 362);
+            this.btnAddOrder.Location = new System.Drawing.Point(846, 52);
             this.btnAddOrder.Name = "btnAddOrder";
             this.btnAddOrder.Size = new System.Drawing.Size(225, 34);
             this.btnAddOrder.TabIndex = 19;
